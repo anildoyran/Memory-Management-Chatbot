@@ -65,7 +65,7 @@ ChatBot &ChatBot::operator=(ChatBot &&src)
     {
         return *this;
     }
-    
+
     delete _image;
 
     this->_currentNode = src._currentNode;
@@ -156,6 +156,7 @@ void ChatBot::SetCurrentNode(GraphNode *node)
     std::string answer = answers.at(dis(generator));
 
     // send selected node answer to user
+    _chatLogic->SetChatbotHandle(this);
     _chatLogic->SendMessageToUser(answer);
 }
 
