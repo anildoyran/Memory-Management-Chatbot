@@ -4,6 +4,7 @@
 #include <vector>
 #include <string>
 #include "chatbot.h"
+#include <memory>
 
 // forward declarations
 class GraphEdge;
@@ -37,7 +38,7 @@ public:
     // proprietary functions
     void AddToken(std::string token); // add answers to list
     void AddEdgeToParentNode(GraphEdge *edge);
-    void AddEdgeToChildNode(GraphEdge *edge);
+    void AddEdgeToChildNode(std::unique_ptr<GraphEdge> edge);
 
     void MoveChatbotHere(ChatBot chatbot);
 

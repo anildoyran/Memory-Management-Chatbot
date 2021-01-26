@@ -51,9 +51,9 @@ ChatBot::ChatBot(ChatBot &&src)
     this->_chatLogic = src._chatLogic;
     this->_image = src._image;
 
-    src._chatLogic = NULL;
-    src._rootNode = NULL;
-    src._currentNode = NULL;
+    src._chatLogic = nullptr;
+    src._rootNode = nullptr;
+    src._currentNode = nullptr;
     src._image = NULL;
 }
 
@@ -65,15 +65,17 @@ ChatBot &ChatBot::operator=(ChatBot &&src)
     {
         return *this;
     }
+    
+    delete _image;
 
     this->_currentNode = src._currentNode;
     this->_rootNode = src._rootNode;
     this->_chatLogic = src._chatLogic;
     this->_image = src._image;
 
-    src._chatLogic = NULL;
-    src._rootNode = NULL;
-    src._currentNode = NULL;
+    src._chatLogic = nullptr;
+    src._rootNode = nullptr;
+    src._currentNode = nullptr;
     src._image = NULL;
 
     return *this;
